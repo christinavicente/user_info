@@ -5,10 +5,17 @@
     <title>User Search</title>
 </head>
 <body>
-        <h1>Edit user info</h1>
-                <input type = "text" name= "username" />
-                <input type= "text" name= "id">
-                <input type = "submit" value = "submit" />
+        <h1>User Login</h1>
+        	<form action = "<%=request.getContextPath()%>/usersearch" method= "post" >
+        	<table>
+        	    <tr>
+        	        <td>Enter User ID: </td>
+        	        <td><input type = "text" name= "ID" /></td>
+        	    </tr>
+        	    <br/>
+
+        	    <input type = "submit" value = "submit" />
+        	</table>
 
 </body>
 </html>
