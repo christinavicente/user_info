@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/user_info")
 public class EditController {
 
-    @GetMapping("usersearch/")
+    @GetMapping("/edit")
     public void editUser(@RequestParam("username") String username,
                          @RequestParam("id") String id){
 

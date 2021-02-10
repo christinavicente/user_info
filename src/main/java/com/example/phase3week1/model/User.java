@@ -23,6 +23,7 @@ public class User implements Serializable {
     }
 
     public int getIdent(){return ident;}
+
     public String getName(){return name;}
 
     public String getID(){return id;}
