@@ -25,5 +25,19 @@ public class HibernateUtils {
         hibernateSessionFactory = conf.buildSessionFactory(registry);
         return hibernateSessionFactory;
     }
+    public static SessionFactory getSessionFactory(){
+        Configuration conf= new Configuration();
+
+        conf.addAnnotatedClass(User.class);
+
+        conf.configure("hibernate.cfg.xml");
+        ServiceRegistry registry = new StandardServiceRegistryBuilder()
+                .applySettings(
+                        conf.getProperties()
+                ).build();
+
+        hibernateSessionFactory = conf.buildSessionFactory(registry);
+        return hibernateSessionFactory;
+    }
 
 }

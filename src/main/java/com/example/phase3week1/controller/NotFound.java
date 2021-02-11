@@ -6,7 +6,7 @@ public class NotFound {
 
 
     @PostMapping("/error.jsp")
-    public void loadEdit(){
-
+    public String loadError(){
+        return "error";
     }
 }
