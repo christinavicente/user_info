@@ -8,6 +8,34 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class UserDAO {
     @Autowired
     User current;
+    static Session hibernateSession;
+    public void initDatabase(){
+        try{
+             hibernateSession= HibernateUtils
+                    .buildSessionFactory()
+                    .openSession();
+            hibernateSession.beginTransaction();
+
+            User user1 = new User("Adam", "one");
+            hibernateSession.save(user1);
+            User user2 = new User("Chris", "two");
+            hibernateSession.save(user2);
+            User user3 = new User("Alex", "three");
+            hibernateSession.save(user3);
+            User user4 = new User("David", "four");
+            hibernateSession.save(user4);
+            User user5 = new User("Josh", "one");
+            hibernateSession.save(user5);
+
+        } catch(Exception sqlException) {
+            sqlException.printStackTrace();
+            if (null != hibernateSession.getTransaction()) {
+                hibernateSession.getTransaction().rollback();
+            }
+        }
+
+    }
+
     public void saveUser(User newuser){
         Transaction transaction=null;
         User user;
